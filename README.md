@@ -17,14 +17,8 @@ Example commands
 Example output
 --------------
 
- * [But why?](output/but-why.txt?raw=true)
-
- * [But why? (sorted)](output/but-why-sorted.txt?raw=true)
-
- * [But why?](output/and-then.txt?raw=true)
-
- * [But why? (sorted)](output/and-then-sorted.txt?raw=true)
-
- * [The whale](output/mobydick-whale.txt?raw=true)
-
- * [The whale (sorted)](output/mobydick-whale-sort.txt?raw=true)
+|                       Name                      |                        Sorted                        |       Regex      |     Input    | Word count |
+|:-----------------------------------------------:|:----------------------------------------------------:|:----------------:|:------------:|:----------:|
+|     [But why?](output/but-why.txt?raw=true)     |     [But why?](output/but-why-sort.txt?raw=true)     | `^[^\w]*But why` |    `*.txt`   |    7,572   |
+|    [And then!](output/and-then.txt?raw=true)    |    [And then!](output/and-then-sort.txt?raw=true)    | `[^\w]*And then` |    `*.txt`   |   85,014   |
+| [The whale](output/mobydick-whale.txt?raw=true) | [The whale](output/mobydick-whale-sort.txt?raw=true) |      `whale`     | `moby11.txt` |   50,913   |
