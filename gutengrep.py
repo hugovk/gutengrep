@@ -113,22 +113,51 @@ def insert_thing_into_filename(thing, filename):
     return filename
 
 
-def correct_those(sentences):
-    for i, sentence in enumerate(sentences):
-        if sentence.startswith('"') and not sentence.endswith('"'):
-            sentences[i] = sentence + '"'
-        elif sentence.startswith("'") and not sentence.endswith("'"):
-            sentences[i] = sentence + "'"
+def correct_quotes(text, quote):
+    """
+    Are quotes (probably) imbalanced?
+    OK:
+        "Hello!"
+        He said: "Hello!"
+        Not ok:
+        "Hello!
+    """
+    count = text.count(quote)
+    if not (count % 2 == 0):  # odd
+        if text.startswith(quote) and not text.endswith(quote):
+            text = text + quote
+        if not text.startswith(quote) and text.endswith(quote):
+            sentence = quote + sentence
+    return text
 
-        if not sentence.startswith('"') and sentence.endswith('"'):
-            sentences[i] = '"' + sentence
-        elif not sentence.startswith("'") and sentence.endswith("'"):
-            sentences[i] = "'" + sentence
+
+def correct_those(sentences):
+
+    for i, sentence in enumerate(sentences):
+        # Remove initial quote-space, often a dangling end quote from the
+        # previous sentence
+        sentence = sentence.lstrip("' ").lstrip('" ')
+
+        # Remove leading close-brackets
+        sentence = sentence.lstrip("]").lstrip(")")
+
+        # Strip whitespace
+        sentence = sentence.strip()
+
+        # Remove duplicate whitespace
+        sentence = " ".join(sentence.split())
+
+        # Balance quotes
+        sentence = correct_quotes(sentence, '"')
+        sentence = correct_quotes(sentence, '"')
+
+        # Update
+        sentences[i] = sentence
+
     return sentences
 
 
-def gutengrep(regex, inspec, outfile, ignore_case,
-              sort, cache, correct):
+def prepare(inspec, cache):
 
     if not inspec and not cache:
         sys.exit("Error: inspec and/or cache arguments needed")
@@ -137,11 +166,6 @@ def gutengrep(regex, inspec, outfile, ignore_case,
         files = glob.glob(inspec)
         if not files:
             sys.exit("No input files found matching " + inspec)
-
-    if ignore_case:
-        flags = re.IGNORECASE
-    else:
-        flags = 0
 
     sentences = None
     # Open
@@ -154,6 +178,17 @@ def gutengrep(regex, inspec, outfile, ignore_case,
             save_cache(SENTENCES_CACHE, sentences)
 
     print(commafy(len(sentences)), "sentences found")
+    return sentences
+
+
+def gutengrep(regex, inspec, outfile, ignore_case, sort, cache, correct):
+
+    if ignore_case:
+        flags = re.IGNORECASE
+    else:
+        flags = 0
+
+    sentences = prepare(inspec, cache)
 
     # Filter
     sentences = find_matching_sentences(regex, sentences, flags)
@@ -194,8 +229,8 @@ if __name__ == '__main__':
                              "inspec. Subsequent uses are based on this "
                              "initial cache, effectively ignoring inspec. ")
     parser.add_argument('--correct', action='store_true',
-                        help="Make little corrections to sentences, "
-                             "like balancing quotes")
+                        help="Make little corrections to sentences: "
+                             "stripping whitespace, balancing quotes")
     args = parser.parse_args()
 
     gutengrep(args.regex[0], args.inspec, args.outfile, args.ignore_case,
