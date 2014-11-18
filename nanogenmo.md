@@ -1,5 +1,5 @@
 gutengrep poetry generator
---------------------------
+==========================
 
 Riffing on a suggestion made in #55, I wrote a script to grep full sentences using regexes from the Project Gutenberg CD. It uses NTLK to find full sentences rather than the arbitrary lines in a file that grep finds. It can also sort them by shortest sentence first.
 
@@ -18,7 +18,7 @@ The OED has a word of the day email, and the quotations for "moonlit" struck me 
 > Below her the wall dropped dizzyingly down,..and beyond that the moonlit roofs of the outer city reached away.
 
 Moonlit
-=======
+-------
 
 Let's try this on Project Gutenberg. There are 597 text files on the CD containing 3,583,390 sentences.
 
@@ -50,7 +50,7 @@ illuminated intermittently; smiling to him, but her heart out and
 abroad, wild as any witch's.
 
 Once upon a time
-================
+----------------
 
 Let's search for "once upon a time":
 
@@ -80,7 +80,7 @@ would come to pass.
 
 
 And then!
-=========
+---------
 
 Or "And then" at the start of each sentence (regex: `[^\w]*And then`):
 
@@ -117,7 +117,7 @@ and other things that amaze the knight and astonish the readers who
 are perusing his history.
 
 But why?
-========
+--------
 
 Or "But why" at the start of each sentence (regex: `[^\w]*But why`):
 
@@ -154,7 +154,7 @@ himself to the mercy of fortune: that it is one of the greatest
 discretions in the rule of war not to drive an enemy to despair?
 
 Happily ever after
-==================
+------------------
 
 Not many, so here's the full thing:
 
@@ -192,7 +192,7 @@ his Heart, so that he got well again, and he also lived happily ever
 after.
 
 Ideas
-=====
+-----
 
 Perhaps create some chapters beginning "Once upon a time" and ending "happily ever after" or "The end.", each with a load of "And then" or "But why".
 
