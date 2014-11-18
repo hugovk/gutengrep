@@ -194,6 +194,6 @@ after.
 Ideas
 =====
 
-Perhaps
+Perhaps create some chapters beginning "Once upon a time" and ending "happily ever after" or "The end.", each with a load of "And then" or "But why".
 
 
