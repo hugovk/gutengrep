@@ -24,6 +24,8 @@ Example output
 |    [Once upon a time](output/once-upon-a-time.txt?raw=true)    |    [Once upon a time](output/once-upon-a-time-sort.txt?raw=true)    | `-i` `once upon a time` |    `*.txt`   |   6,195   |
 |    [The End](output/the-end.txt?raw=true)    |    [The End](output/the-end-sort.txt?raw=true)    | `-i` `the end\.` |    `*.txt`   |   142,94   |
 |    [Happily ever after](output/happily-ever-after.txt?raw=true)    |    [Happily ever after](output/happily-ever-after-sort.txt?raw=true)    | `-i` `happily ever after` |    `*.txt`   |   271   |
+|    [Moonlit](output/moonlit.txt?raw=true)    |    [Moonlit](output/moonlit-sort.txt?raw=true)    | `-i` `moonlit` |    `*.txt`   |   52,345   |
+|    [Moonlight](output/moonlight.txt?raw=true)    |    [Moonlight](output/moonlight-sort.txt?raw=true)    | `-i` `moonlight` |    `*.txt`   |   3,186   |
 
 Tips
 ----
