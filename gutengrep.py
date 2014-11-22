@@ -83,14 +83,25 @@ def load_sentences_from_files(files, regex=None, flags=0):
     return all_sentences
 
 
-def find_matching_sentences(regex, sentences, flags=0):
+def find_matching_sentences(regex, sentences, flags=0, andnext=False,
+                            language=None):
+    total_sentences = len(sentences)
     matching_sentences = []
-    for sentence in sentences:
+
+    for i, sentence in enumerate(sentences):
         # if re.search(r"\b" + re.escape(word) + r"\b", sentence, flags):
         if re.search(regex, sentence, flags):
             # print("-"*80)
             # print_it(sentence)
-            matching_sentences.append(sentence)
+
+            if language:
+                if detect(sentence) != language:
+                    continue
+
+            if andnext and i+2 <= total_sentences:
+                matching_sentences.append(sentence + " " + sentences[i+1])
+            else:
+                matching_sentences.append(sentence)
     return matching_sentences
 
 
@@ -181,7 +192,8 @@ def prepare(inspec, cache):
     return sentences
 
 
-def gutengrep(regex, inspec, outfile, ignore_case, sort, cache, correct):
+def gutengrep(regex, inspec, outfile, ignore_case, sort, cache, correct,
+              andnext=False, language=None):
 
     if ignore_case:
         flags = re.IGNORECASE
@@ -191,7 +203,8 @@ def gutengrep(regex, inspec, outfile, ignore_case, sort, cache, correct):
     sentences = prepare(inspec, cache)
 
     # Filter
-    sentences = find_matching_sentences(regex, sentences, flags)
+    sentences = find_matching_sentences(regex, sentences, flags, andnext,
+                                        language)
 
     if args.correct:
         sentences = correct_those(sentences)
@@ -231,9 +244,17 @@ if __name__ == '__main__':
     parser.add_argument('--correct', action='store_true',
                         help="Make little corrections to sentences: "
                              "stripping whitespace, balancing quotes")
+    parser.add_argument('--andnext', action='store_true',
+                        help="Also output the next sentence")
+    parser.add_argument('-l', '--language',
+                        help="Only this language sentences. Use language code,"
+                                "like en or es.")
     args = parser.parse_args()
 
+    if args.language:
+        from langdetect import detect
+
     gutengrep(args.regex[0], args.inspec, args.outfile, args.ignore_case,
-              args.sort, args.cache, args.correct)
+              args.sort, args.cache, args.correct, args.andnext, args.language)
 
 # End of file
