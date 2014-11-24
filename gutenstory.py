@@ -178,7 +178,7 @@ def story(inspec, outfile, sort, cache):
     front_matter = [
         "Title:          Gutenstory, a grepped story\n"
         "CSS:            gutenstory.css\n"
-        "HTML Header:    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700,400italic'>",
+        "HTML Header:    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700,400italic'>",
         "",
         "# Gutenstory",
         "",

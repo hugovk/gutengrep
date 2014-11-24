@@ -1,6 +1,6 @@
 Title:          Gutenstory, a grepped story
 CSS:            gutenstory.css
-HTML Header:    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700,400italic'>
+HTML Header:    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700,400italic'>
 
 
 
