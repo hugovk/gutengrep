@@ -1,7 +1,9 @@
-gutengrep poetry generator
-==========================
 
-Riffing on a suggestion made in #55, I wrote a script to grep full sentences using regexes from the Project Gutenberg CD. It uses NTLK to find full sentences rather than the arbitrary lines in a file that grep finds. It can also sort them by shortest sentence first.
+# Gutengrep and Gutenstory
+
+## Gutengrep poetry generator
+
+Riffing on a suggestion made in [#55](https://github.com/dariusk/NaNoGenMo-2014/issues/55), I wrote a script to grep full sentences using regexes from the Project Gutenberg CD. It uses NTLK to find full sentences rather than the arbitrary lines in a file that grep finds. It can also sort them by shortest sentence first.
 
 But first.
 
@@ -17,10 +19,9 @@ The OED has a word of the day email, and the quotations for "moonlit" struck me 
 > She stood looking out at the shadowed grey-white moonlit world.
 > Below her the wall dropped dizzyingly down,..and beyond that the moonlit roofs of the outer city reached away.
 
-Moonlit
--------
+### Moonlit
 
-Let's try this on Project Gutenberg. There are 597 text files on the CD containing 3,583,390 sentences.
+Let's try this on Project Gutenberg. There are 597 text files on the CD containing 3,583,390 sentences. Full output of these can be found [in the repo](https://github.com/hugovk/gutengrep/tree/gh-pages/output).
 
 > A moonlit nightcall: far, far.
 
@@ -49,8 +50,7 @@ on the pillow, like shadow of twigs and sprays on moonlit grass,
 illuminated intermittently; smiling to him, but her heart out and
 abroad, wild as any witch's.
 
-Once upon a time
-----------------
+### Once upon a time
 
 Let's search for "once upon a time":
 
@@ -79,8 +79,7 @@ the North Countrie who was a great magician that knew everything that
 would come to pass.
 
 
-And then!
----------
+### And then!
 
 Or "And then" at the start of each sentence (regex: `[^\w]*And then`):
 
@@ -116,8 +115,7 @@ to tell him what the castle is, and how she is held enchanted there,
 and other things that amaze the knight and astonish the readers who
 are perusing his history.
 
-But why?
---------
+### But why?
 
 Or "But why" at the start of each sentence (regex: `[^\w]*But why`):
 
@@ -153,8 +151,7 @@ man's self into danger after a victory obtained is again to expose
 himself to the mercy of fortune: that it is one of the greatest
 discretions in the rule of war not to drive an enemy to despair?
 
-Happily ever after
-------------------
+### Happily ever after
 
 Not many, so here's the full thing:
 
@@ -191,9 +188,25 @@ week that young hound became the Star of Fortune and the very Pulse of
 his Heart, so that he got well again, and he also lived happily ever
 after.
 
-Ideas
------
+## Gutenstory, a grepped story
 
-Perhaps create some chapters beginning "Once upon a time" and ending "happily ever after" or "The end.", each with a load of "And then" or "But why".
+To generate a full book, gutenstory.py repeatedly searches the 3,583,390 sentences in the 597 text files of the Project Gutenberg CD.
 
+First it collects all the sentences containing "once upon a time". Next it collected all the sentences with "happily ever after" or ending "the end." Each chapter begins and ends with one of these random sentences.
+
+After that, the remainder of each chapter's content is generated from 80 random sentences, sorted by length, of different sets of sentences. For example, those beginning "But why", "Of course", "Suddenly" or "Presently", or those containing "year-old", "princess", "violin", "laughed", or the months or days.
+
+Here's example output of 65,383-worder: [HTML](https://hugovk.github.io/gutengrep/output/gutenstory.html) | [PDF](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory.pdf?raw=true) | [MD](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory.md)
+
+
+Generated with:
+
+    time gutenstory.py "*.txt" --cache --sort
+    wc -w gutenstory.md
+    multimarkdown gutenstory.md > gutenstory.html
+    open gutenstory.html
+
+Then print to PDF using Chrome. Big thanks to [@moonmilk for the CSS](https://github.com/moonmilk/nanogenmo2014):
+
+> Learning how to use print css to make the PDF look more like a cheap paperback and less like the printout from a web browser. css @page object and widows, orphans, and page-break-before properties allow some simple but effective page formatting. I also added a slightly tacky free google font to further distance the resulting look from default browser printouts.
 
