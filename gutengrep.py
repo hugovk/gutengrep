@@ -46,7 +46,7 @@ def commafy(value):
     return "{:,}".format(value)
 
 
-def format(text, indent=0, width=70):
+def format_text(text, indent=0, width=70):
     return textwrap.fill(text, width=width, initial_indent=" "*indent,
                          subsequent_indent=" "*indent)
 
@@ -105,13 +105,14 @@ def find_matching_sentences(regex, sentences, flags=0, andnext=False,
     return matching_sentences
 
 
-def output(sentences, filename):
+def output(sentences, filename, please_format_text=True):
     with open(filename, "w") as fp:
         for s in sentences:
-            s = s.replace("\r\n", " ")
-            # s = s.replace(args.word, "**" + args.word + "**")  TODO
-            out = format(s) + "\n\n"
-            out = out.encode("utf-8")
+            out = s.replace("\r\n", " ")
+            # out = s.replace(args.word, "**" + args.word + "**")  TODO
+            if please_format_text:
+                out = format_text(out)
+            out = (out + "\n\n").encode("utf-8")
             print(out)
             fp.write(out)
             # print("-"*80)
@@ -138,7 +139,7 @@ def correct_quotes(text, quote):
         if text.startswith(quote) and not text.endswith(quote):
             text = text + quote
         if not text.startswith(quote) and text.endswith(quote):
-            sentence = quote + sentence
+            text = quote + text
     return text
 
 
@@ -248,7 +249,7 @@ if __name__ == '__main__':
                         help="Also output the next sentence")
     parser.add_argument('-l', '--language',
                         help="Only this language sentences. Use language code,"
-                                "like en or es.")
+                             "like en or es.")
     args = parser.parse_args()
 
     if args.language:
