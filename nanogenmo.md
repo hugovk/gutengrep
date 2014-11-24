@@ -3,7 +3,7 @@
 
 ## Gutengrep poetry generator
 
-Riffing on a suggestion made in [#55](https://github.com/dariusk/NaNoGenMo-2014/issues/55), I wrote a script to grep full sentences using regexes from the Project Gutenberg CD. It uses NTLK to find full sentences rather than the arbitrary lines in a file that grep finds. It can also sort them by shortest sentence first.
+Riffing on a suggestion made in [#55](https://github.com/dariusk/NaNoGenMo-2014/issues/55), I wrote a script to grep full sentences using regexes from the [Project Gutenberg CD](http://www.gutenberg.org/wiki/Gutenberg:The_CD_and_DVD_Project). It uses [NTLK](http://www.nltk.org/) to find full sentences rather than the arbitrary lines in a file that grep finds. It can also sort them by shortest sentence first.
 
 But first.
 
@@ -190,13 +190,13 @@ after.
 
 ## Gutenstory, a grepped story
 
-To generate a full book, gutenstory.py repeatedly searches the 3,583,390 sentences in the 597 text files of the Project Gutenberg CD.
+To generate a full book, gutenstory.py repeatedly searches the 3,583,390 sentences in the 597 text files of the [Project Gutenberg CD](http://www.gutenberg.org/wiki/Gutenberg:The_CD_and_DVD_Project).
 
 First it collects all the sentences containing "once upon a time". Next it collected all the sentences with "happily ever after" or ending "the end." Each chapter begins and ends with one of these random sentences.
 
-After that, the remainder of each chapter's content is generated from 80 random sentences, sorted by length, of different sets of sentences. For example, those beginning "But why", "Of course", "Suddenly" or "Presently", or those containing "year-old", "princess", "violin", "laughed", or the months or days.
+After that, the remainder of each chapter's content is generated from 80 random sentences, sorted by length, of different sets of sentences. For example, one chapter of those beginning "But why". Another beginning "Of course", others starting "Suddenly" or "Presently", and yet more containing "year-old", "princess", "violin", "laughed", or the months or days.
 
-Here's example output of 65,383-worder: [HTML](https://hugovk.github.io/gutengrep/output/gutenstory.html) | [PDF](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory.pdf?raw=true) | [MD](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory.md)
+Here's example output of a 65,383-worder: [HTML](https://hugovk.github.io/gutengrep/output/gutenstory.html) | [PDF](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory.pdf?raw=true) | [MD](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory.md)
 
 
 Generated with:
