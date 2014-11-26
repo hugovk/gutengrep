@@ -27,6 +27,8 @@ Example output
 |    [Moonlit](output/moonlit.txt?raw=true)    |    [Moonlit](output/moonlit-sort.txt?raw=true)    | `-i` `moonlit` |    `*.txt`   |   52,345   |
 |    [Moonlight](output/moonlight.txt?raw=true)    |    [Moonlight](output/moonlight-sort.txt?raw=true)    | `-i` `moonlight` |    `*.txt`   |   3,186   |
 
+See also [nanogenmo.md](nanogenmo.md).
+
 Tips
 ----
 
