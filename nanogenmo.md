@@ -1,6 +1,11 @@
 
 # Gutengrep and Gutenstory
 
+Entries for [NaNoGenMo 2014](https://github.com/dariusk/NaNoGenMo-2014), the national novel generation month.
+
+1. <a href="#gutengrep-poetry-generator">Gutengrep poetry generator</a>
+2. <a href="#gutenstory-a-grepped-story">Gutenstory, a grepped story</a>
+
 ## Gutengrep poetry generator
 
 Riffing on a suggestion made in [#55](https://github.com/dariusk/NaNoGenMo-2014/issues/55), I wrote a script to grep full sentences using regexes from the [Project Gutenberg CD](http://www.gutenberg.org/wiki/Gutenberg:The_CD_and_DVD_Project). It uses [NTLK](http://www.nltk.org/) to find full sentences rather than the arbitrary lines in a file that grep finds. It can also sort them by shortest sentence first.
@@ -194,10 +199,14 @@ To generate a full book, gutenstory.py repeatedly searches the 3,583,390 sentenc
 
 First it collects all the sentences containing "once upon a time". Next it collected all the sentences with "happily ever after" or ending "the end." Each chapter begins and ends with one of these random sentences.
 
-After that, the remainder of each chapter's content is generated from 80 random sentences, sorted by length, of different sets of sentences. For example, one chapter of those beginning "But why". Another beginning "Of course", others starting "Suddenly" or "Presently", and yet more containing "year-old", "princess", "violin", "laughed", or the months or days.
+After that, the remainder of each chapter's content is generated from 70 or 80 random sentences, sorted by length, of different sets of sentences. For example, one chapter of those beginning "But why". Another beginning "Of course", others starting "Suddenly" or "Presently", and yet more containing "year-old", "princess", "violin", "laughed", or the months or days.
 
-Here's example output of a 65,383-worder: [HTML](https://hugovk.github.io/gutengrep/output/gutenstory.html) | [PDF](https://hugovk.github.io/gutengrep/output/gutenstory.pdf) | [MD](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory.md)
+Here's example output of a 65,383-worder (I'd been tweaking the number of random sentences to pick to end up with ~50k words, but then on this particular run the penultimate sentence landed on a 13k-word sentence from Joyce's Ulysses!): 
+[PDF](https://hugovk.github.io/gutengrep/output/gutenstory.pdf) | [HTML](https://hugovk.github.io/gutengrep/output/gutenstory.html) | [MD](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory.md)
 
+And a 50,143 second volume: 
+[PDF](https://hugovk.github.io/gutengrep/output/gutenstory2.pdf) |
+[HTML](https://hugovk.github.io/gutengrep/output/gutenstory2.html) |  [MD](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory2.md)
 
 Generated with:
 
