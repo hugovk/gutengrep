@@ -196,7 +196,7 @@ First it collects all the sentences containing "once upon a time". Next it colle
 
 After that, the remainder of each chapter's content is generated from 80 random sentences, sorted by length, of different sets of sentences. For example, one chapter of those beginning "But why". Another beginning "Of course", others starting "Suddenly" or "Presently", and yet more containing "year-old", "princess", "violin", "laughed", or the months or days.
 
-Here's example output of a 65,383-worder: [HTML](https://hugovk.github.io/gutengrep/output/gutenstory.html) | [PDF](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory.pdf?raw=true) | [MD](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory.md)
+Here's example output of a 65,383-worder: [HTML](https://hugovk.github.io/gutengrep/output/gutenstory.html) | [PDF](https://hugovk.github.io/gutengrep/output/gutenstory.pdf) | [MD](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory.md)
 
 
 Generated with:
