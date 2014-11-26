@@ -204,7 +204,7 @@ After that, the remainder of each chapter's content is generated from 70 or 80 r
 Here's example output of a 65,383-worder (I'd been tweaking the number of random sentences to pick to end up with ~50k words, but then on this particular run the penultimate sentence landed on a 13k-word sentence from Joyce's Ulysses!): 
 [PDF](https://hugovk.github.io/gutengrep/output/gutenstory.pdf) | [HTML](https://hugovk.github.io/gutengrep/output/gutenstory.html) | [MD](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory.md)
 
-And a 50,143 second volume: 
+And a 50,143 second volume (with regexes relegated from chapter titles to an appendix): 
 [PDF](https://hugovk.github.io/gutengrep/output/gutenstory2.pdf) |
 [HTML](https://hugovk.github.io/gutengrep/output/gutenstory2.html) |  [MD](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutenstory2.md)
 
