@@ -5,7 +5,7 @@ Entries for [NaNoGenMo 2014](https://github.com/dariusk/NaNoGenMo-2014), the nat
 
 1. <a href="#gutengrep-poetry-generator">Gutengrep poetry generator</a>
 2. <a href="#gutenstory-a-grepped-story">Gutenstory, a grepped story</a>
-3. Gutencounter, counting in context
+3. <a href="#gutencounter-counting-in-context">Gutencounter, counting in context</a>
 
 ## Gutengrep poetry generator
 
