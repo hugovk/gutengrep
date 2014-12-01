@@ -1,10 +1,11 @@
 
-# Gutengrep and Gutenstory
+# Gutengrep, Gutenstory and Gutencounter
 
 Entries for [NaNoGenMo 2014](https://github.com/dariusk/NaNoGenMo-2014), the national novel generation month.
 
 1. <a href="#gutengrep-poetry-generator">Gutengrep poetry generator</a>
 2. <a href="#gutenstory-a-grepped-story">Gutenstory, a grepped story</a>
+3. Gutencounter, counting in context
 
 ## Gutengrep poetry generator
 
@@ -218,4 +219,35 @@ Generated with:
 Then print to PDF using Chrome. Big thanks to [@moonmilk for the CSS](https://github.com/moonmilk/nanogenmo2014):
 
 > Learning how to use print css to make the PDF look more like a cheap paperback and less like the printout from a web browser. css @page object and widows, orphans, and page-break-before properties allow some simple but effective page formatting. I also added a slightly tacky free google font to further distance the resulting look from default browser printouts.
+
+
+## Gutencounter, counting in context
+
+What happens if we want to find each sequential number, in words, in a big corpus?
+
+This is what happens.
+
+ * [PDF](https://hugovk.github.io/gutengrep/output/gutencounter.pdf) | [HTML](https://hugovk.github.io/gutengrep/output/gutencounter.html) |  [MD](https://github.com/hugovk/gutengrep/blob/gh-pages/output/gutencounter.md)
+
+It uses the Project Gutenberg CD of 600 books, containing some 3,583,389 sentences.
+
+It runs through twice: first with the first sentence found in the corpus (from zero to fifty-five thousand); second with the shortest matching sentence (zero to forty-eight thousand).
+
+Made something like this:
+
+    gutencounter --cache *.txt >> gutencounter-unsorted.md
+    gutencounter --sort --cache *.txt >> gutencounter-sorted.md
+    [leave running until have enough words]
+    cat gutencounter-unsorted.md > gutencounter.md
+    cat gutencounter-sorted.md >> gutencounter.md
+    grep "##" gutencounter.md > contents.txt
+    [hack contents.txt into links]
+    cat gutencounter.py >> gutencounter.md
+    wc -w gutencounter.md
+    [hack front matter and contents into gutencounter.md and <pre></pre> for source]
+    multimarkdown gutencounter.md > gutencounter.html
+
+Then print to PDF using Chrome. Big thanks to @moonmilk [for the CSS](https://github.com/moonmilk/nanogenmo2014).
+
+
 
