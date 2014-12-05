@@ -1,6 +1,6 @@
 
-@page { 
-	size: 5in 7in; 
+@page {
+	size: 5in 7in;
 	margin: 2cm;
 }
 
@@ -9,7 +9,7 @@ body {
 }
 
 p {
-	orphans:4; 
+	orphans:4;
 	widows:3;
 }
 
@@ -20,8 +20,11 @@ h1 {
 }
 
 h2 {
+	padding-top: 0.2in;
+}
+
+#zero, #contents {
 	page-break-before: right;
-	padding-top: 2in;
 }
 
 .author {
