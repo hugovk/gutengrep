@@ -15,15 +15,15 @@ But first.
 
 The OED has a word of the day email, and the quotations for "moonlit" struck me as particularly poetic:
 
-> Along the moon-lit shore,—a dreary waste,—no peaceful Indian watch'd her rising orb.
-> Night silent comes;..Tilt half enchains wi' rugged hand His moon-lit wave.
-> The City's moon-lit spires and myriad lamps.
-> The sloping of the moonlit sward.
-> She stood on deck, watching the moonlit sea.
-> He was crazy in love with her and one moonlit night he proposed to her.
-> The sky was clear and moonlit and cold.
-> She stood looking out at the shadowed grey-white moonlit world.
-> Below her the wall dropped dizzyingly down,..and beyond that the moonlit roofs of the outer city reached away.
+> Along the moon-lit shore,—a dreary waste,—no peaceful Indian watch'd her rising orb.  
+> Night silent comes;..Tilt half enchains wi' rugged hand His moon-lit wave.  
+> The City's moon-lit spires and myriad lamps.  
+> The sloping of the moonlit sward.  
+> She stood on deck, watching the moonlit sea.  
+> He was crazy in love with her and one moonlit night he proposed to her.  
+> The sky was clear and moonlit and cold.  
+> She stood looking out at the shadowed grey-white moonlit world.  
+> Below her the wall dropped dizzyingly down,..and beyond that the moonlit roofs of the outer city reached away.  
 
 ### Moonlit
 
