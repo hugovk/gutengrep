@@ -8,10 +8,14 @@ import os
 import sys
 import glob
 import codecs
-import pickle
 import argparse
 import textwrap
 import nltk.data
+
+try:
+    import cPickle as pickle
+except ImportError:
+    import pickle
 
 try:
     import timing
