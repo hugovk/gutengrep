@@ -211,7 +211,7 @@ def gutengrep(regex, inspec, outfile, ignore_case, sort, cache, correct,
     sentences = find_matching_sentences(regex, sentences, flags, andnext,
                                         language)
 
-    if args.correct:
+    if correct:
         sentences = correct_those(sentences)
 
     output(sentences, outfile)
