@@ -148,7 +148,10 @@ def correct_quotes(text, quote):
 
 
 def correct_those(sentences):
-
+    """
+    Make little corrections to sentences:
+    stripping whitespace, balancing quotes, etc.
+    """
     for i, sentence in enumerate(sentences):
         # Remove initial quote-space, often a dangling end quote from the
         # previous sentence
