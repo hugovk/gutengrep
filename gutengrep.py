@@ -40,13 +40,13 @@ def save_cache(filename, data):
         pickle.dump(data, fp, -1)
 
 
-# cmd.exe cannot do Unicode so encode first
 def print_it(text):
+    """cmd.exe cannot do Unicode so encode first"""
     print(text.encode('utf-8'))
 
 
-# Add thousands commas
 def commafy(value):
+    """Add thousands commas"""
     return "{:,}".format(value)
 
 
@@ -201,7 +201,7 @@ def prepare(inspec, cache):
 
 
 def gutengrep(regex, inspec, outfile, ignore_case, sort, cache, correct,
-              andnext=False, language=None):
+              andnext=False, language=None, no_wrap=False):
 
     if ignore_case:
         flags = re.IGNORECASE
@@ -217,13 +217,13 @@ def gutengrep(regex, inspec, outfile, ignore_case, sort, cache, correct,
     if correct:
         sentences = correct_those(sentences)
 
-    output(sentences, outfile)
+    output(sentences, outfile, not no_wrap)
 
     if sort:
         sentences.sort(key=len)
         print("*"*80)
         outfile = insert_thing_into_filename("-sort", outfile)
-        output(sentences, outfile)
+        output(sentences, outfile, not no_wrap)
 
 
 if __name__ == '__main__':
@@ -256,13 +256,16 @@ if __name__ == '__main__':
                         help="Also output the next sentence")
     parser.add_argument('-l', '--language',
                         help="Only this language sentences. Use language code,"
-                             "like en or es.")
+                             " like en or es.")
+    parser.add_argument('-n', '--no-wrap', action='store_true',
+                        help="Don't wrap output text.")
     args = parser.parse_args()
 
     if args.language:
         from langdetect import detect
 
     gutengrep(args.regex[0], args.inspec, args.outfile, args.ignore_case,
-              args.sort, args.cache, args.correct, args.andnext, args.language)
+              args.sort, args.cache, args.correct, args.andnext, args.language,
+              args.no_wrap)
 
 # End of file
