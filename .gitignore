@@ -52,3 +52,8 @@ docs/_build/
 
 # PyBuilder
 target/
+
+sentences_cache.pkl
+test.txt
+found-the-whale.txt
+found-the-whale-sort.txt

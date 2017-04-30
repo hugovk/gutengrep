@@ -21,11 +21,16 @@ branches:
 
 install:
  - pip install pep8 pyflakes
+ # Create dummy test file
+ - echo "The sea and waves. Water. More sea. The whale! The ocean." > test.txt
 
 script:
  # Static analysis
  - pyflakes .
  - pep8 --statistics --count .
+
+ # Simple test
+ - python gutengrep.py -i "whale" test.txt --sort --correct -o found-the-whale.txt
 
 matrix:
   fast_finish: true
