@@ -1,6 +1,8 @@
 gutengrep
 =========
 
+[![Build Status](https://travis-ci.org/hugovk/gutengrep.svg?branch=gh-pages)](https://travis-ci.org/hugovk/gutengrep)
+
 Find whole sentences matching a regex in Project Gutenberg plain text files.
 
 Example commands
