@@ -36,3 +36,9 @@ script:
 
 matrix:
   fast_finish: true
+  allow_failures:
+   - python: pypy3
+   - python: 3.6
+   - python: 3.5
+   - python: 3.4
+   - python: 3.3
