@@ -21,6 +21,8 @@ branches:
 
 install:
  - pip install pep8 pyflakes
+ - pip install -r requirements.txt
+ - python -m nltk.downloader punkt
  # Create dummy test file
  - echo "The sea and waves. Water. More sea. The whale! The ocean." > test.txt
 
