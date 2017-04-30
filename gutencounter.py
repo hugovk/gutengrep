@@ -12,6 +12,7 @@ import argparse
 
 try:
     import timing
+    assert timing  # Silence warning
 except ImportError:
     pass
 
@@ -25,7 +26,11 @@ def filter_boilerplate(sentences):
     # Filter some boilerplate
     new_sentences = []
     for s in sentences:
-        if "gutenberg" in s.lower() or "we are now trying to release all our books one" in s.lower() or "value per text" in s.lower() or "computer" in s.lower() or " etext" in s.lower():
+        if ("we are now trying to release all our books one" in s.lower() or
+                "gutenberg" in s.lower() or
+                "value per text" in s.lower() or
+                "computer" in s.lower() or
+                " etext" in s.lower()):
             continue
         new_sentences.append(s)
     return new_sentences
@@ -117,7 +122,9 @@ def counter(inspec, outfile, sort, cache):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description="Print out sentences from a corpus containing each number (in words).",                    formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+        description="Print out sentences from a corpus containing each number "
+                    "(in words).",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('inspec', nargs=1,
                         help="Input file spec")
     parser.add_argument('-o', '--outfile', default='output.log',
