@@ -19,6 +19,7 @@ except ImportError:
 
 try:
     import timing
+    assert timing  # Silence warning
 except ImportError:
     pass
 

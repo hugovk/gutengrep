@@ -11,6 +11,7 @@ import re
 
 try:
     import timing
+    assert timing  # Silence warning
 except ImportError:
     pass
 
@@ -204,7 +205,9 @@ def story(inspec, outfile, sort, cache, story_title):
     front_matter = [
         "Title:          " + story_title + ", a grepped story\n"
         "CSS:            gutenstory.css\n"
-        "HTML Header:    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700,400italic'>",
+        "HTML Header:    <link rel='stylesheet' type='text/css' "
+        "href='https://fonts.googleapis.com/css?"
+        "family=Gentium+Book+Basic:400,700,400italic'>",
         "",
         "# " + story_title,
         "",
@@ -214,7 +217,8 @@ def story(inspec, outfile, sort, cache, story_title):
         "",
         '<p class="auth-desc">for NaNoGenMo 2014</p>',
         "",
-        '<p class="source">source code at https://github.com/hugovk/gutengrep</p>',
+        '<p class="source">source code at '
+        'https://github.com/hugovk/gutengrep</p>',
         "",
         "## Contents",
         ]
@@ -273,7 +277,7 @@ if __name__ == '__main__':
     parser.add_argument('-o', '--outfile', default='gutenstory.md',
                         help="Output filename")
     parser.add_argument('-s', '--sort', action='store_true',
-                        help="Sort sentences by length")
+                        help="Solart sentences by length")
 #     parser.add_argument('-b', '--bold', action='store_true',
 #                         help="Embolden found text TODO")
     parser.add_argument('--cache', action='store_true',
