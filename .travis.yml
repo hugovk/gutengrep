@@ -21,11 +21,24 @@ branches:
 
 install:
  - pip install pep8 pyflakes
+ - pip install -r requirements.txt
+ - python -m nltk.downloader punkt
+ # Create dummy test file
+ - echo "The sea and waves. Water. More sea. The whale! The ocean." > test.txt
 
 script:
  # Static analysis
  - pyflakes .
  - pep8 --statistics --count .
 
+ # Simple test
+ - python gutengrep.py -i "whale" test.txt --sort --correct -o found-the-whale.txt
+
 matrix:
   fast_finish: true
+  allow_failures:
+   - python: pypy3
+   - python: 3.6
+   - python: 3.5
+   - python: 3.4
+   - python: 3.3

@@ -10,7 +10,7 @@ import glob
 import codecs
 import argparse
 import textwrap
-import nltk.data
+import nltk.data  # pip install nltk
 
 try:
     import cPickle as pickle
@@ -66,6 +66,7 @@ def find_sentences_in_text(filename):
 
         print("Tokenize...")
         if TOKENIZER is None:
+            # python -m nltk.downloader punkt
             TOKENIZER = nltk.data.load('tokenizers/punkt/english.pickle')
         sentences = TOKENIZER.tokenize(text)
         print(commafy(len(sentences)), "sentences found")
