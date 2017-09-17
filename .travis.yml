@@ -9,7 +9,6 @@ python:
  - 3.6
  - 3.5
  - 3.4
- - 3.3
 
 sudo: false
 
@@ -41,4 +40,3 @@ matrix:
    - python: 3.6
    - python: 3.5
    - python: 3.4
-   - python: 3.3
