@@ -4,10 +4,7 @@
 Unit tests for gutengrep.py
 """
 from __future__ import print_function, unicode_literals
-try:
-    import unittest2 as unittest
-except ImportError:
-    import unittest
+import unittest
 
 import gutengrep
 
