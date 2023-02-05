@@ -34,7 +34,7 @@ See also [nanogenmo.md](nanogenmo.md).
 Tips
 ----
 
-Download the [Project Gutenberg August 2003 CD](http://www.gutenberg.org/wiki/Gutenberg:The_CD_and_DVD_Project) and put all the files in the same directory.
+Download the [Project Gutenberg August 2003 CD](https://www.gutenberg.org/ebooks/11220) (download and mount the ISO file) and copy all the text files from the 'etext' directories to your hard drive, and put all of the text files in the same directory.
 
 When working on the whole corpus, use `--cache` to cut down on file operations. The first time it will build a cache file of all tokenised sentences. This first pass takes about 5 minutes on my MBP to go through the 597 books of the Project Gutenberg CD and extract its 3,583,390 sentences. Subsequent runs using the cache take about 40 seconds.
 
